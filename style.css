@@ -1,0 +1,239 @@
+/* =====================================
+   Global Reset & Variables
+===================================== */
+:root {
+    --primary: #7c3aed;
+    --secondary: #22d3ee;
+    --accent: #f472b6;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --glass: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =====================================
+   Animated Gradient Background
+===================================== */
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #020617,
+        #0f172a,
+        #1e1b4b,
+        #312e81
+    );
+    background-size: 300% 300%;
+    animation: bgFlow 15s ease infinite;
+    color: var(--light);
+    line-height: 1.7;
+}
+
+@keyframes bgFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =====================================
+   Header (Neon Glow)
+===================================== */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.35),
+        rgba(34, 211, 238, 0.35)
+    );
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    background: linear-gradient(90deg, #a78bfa, #22d3ee, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #c7d2fe;
+}
+
+/* =====================================
+   Glassmorphism Main Section
+===================================== */
+section {
+    max-width: 1050px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--glass);
+    border-radius: 18px;
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* =====================================
+   Headings with Accent Glow
+===================================== */
+section h2 {
+    margin: 30px 0 15px;
+    font-size: 1.5rem;
+    color: #e0e7ff;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    border-radius: 5px;
+}
+
+/* =====================================
+   Media Styling
+===================================== */
+img,
+video,
+audio {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* =====================================
+   Form Styling
+===================================== */
+form {
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #e0e7ff;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 22px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #f8fafc;
+    font-size: 0.95rem;
+    transition: all 0.35s ease;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+}
+
+/* =====================================
+   Input Focus Glow
+===================================== */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow:
+        0 0 0 3px rgba(34, 211, 238, 0.25),
+        0 0 18px rgba(124, 58, 237, 0.6);
+    background: rgba(15, 23, 42, 0.95);
+}
+
+/* =====================================
+   Neon Button (BOOM)
+===================================== */
+input[type="submit"] {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #020617;
+    cursor: pointer;
+    letter-spacing: 0.6px;
+    transition: all 0.35s ease;
+    box-shadow:
+        0 0 25px rgba(124, 58, 237, 0.8),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow:
+        0 0 35px rgba(34, 211, 238, 1),
+        0 15px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* =====================================
+   Flexbox Enhancement
+===================================== */
+@media (min-width: 768px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+
+/* =====================================
+   Tablet View
+===================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    section {
+        margin: 25px 15px;
+        padding: 22px;
+    }
+}
+
+/* =====================================
+   Mobile View
+===================================== */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    section {
+        padding: 18px;
+    }
+}
